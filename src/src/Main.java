@@ -1,17 +1,69 @@
+import java.util.Scanner;
+
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Scanner leitura = new Scanner(System.in);
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        double saldoCC = 2500.00;
+        int opcao = 0;
+        double saldoAtualizado = saldoCC;
+        double debito = 0;
+        double credito = 0;
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+        System.out.println("***********************************************");
+        System.out.println("Dados iniciais do cliente:");
+        System.out.println();
+        System.out.println();
+        System.out.println("Nome: Marcelo Viana");
+        System.out.println("Tipo conta: Corrente");
+        System.out.println("Saldo inicial: "+ saldoCC);
+
+        System.out.println("***********************************************");
+
+        System.out.println();
+        System.out.println();
+        System.out.println("Operacões");
+        System.out.println();
+        System.out.println();
+        System.out.println("1 - Consultar saldos");
+        System.out.println("2 - Receber valor");
+        System.out.println("3 - Transferir valor");
+        System.out.println("4 - Sair");
+        System.out.println();
+        System.out.println();
+
+
+        while (opcao !=4 ){
+
+            System.out.println("Digite a opcao desejada:");
+            opcao = leitura.nextInt();
+
+            if (opcao == 1){
+                System.out.println("Seu saldo é: " + saldoAtualizado);
+            }
+            if (opcao == 3){
+                System.out.println("Informe o valor a transferir: ");
+                debito = leitura.nextDouble();
+                if(debito > saldoAtualizado){
+                    System.out.println("Saldo insuficiente!");
+                }else {
+                    saldoAtualizado = saldoAtualizado - debito;
+                    System.out.println("Saldo atualizado R$ "+saldoAtualizado);
+                }
+
+            }
+
+            if (opcao == 2){
+                System.out.println("Informe o valor a receber: ");
+                credito = leitura.nextDouble();
+                saldoAtualizado = saldoAtualizado + credito;
+                System.out.println("Saldo atualizado R$ "+saldoAtualizado);
+
+            }
+
         }
+
     }
 }
