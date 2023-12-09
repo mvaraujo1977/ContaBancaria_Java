@@ -8,36 +8,40 @@ public class Main {
     double saldoAtualizado = saldoCC;
     double debito = 0;
     double credito = 0;
+    Scanner leitura = new Scanner(System.in);
+
+    public static void main(String[] args) {
+
+        Main m = new Main();
+        m.cabecalho();
+        m.operacao();
+        m.calculo();
+
+    }
 
     public void cabecalho(){
 
         System.out.println("***********************************************");
         System.out.println("Dados iniciais do cliente:");
-        System.out.println();
-        System.out.println();
-        System.out.println("Nome: Marcelo Viana");
+        System.out.println("\nNome: Marcelo Viana");
         System.out.println("Tipo conta: Corrente");
         System.out.println("Saldo inicial: "+ saldoAtualizado);
+        System.out.println("\n***********************************************");
+    }
+    public void operacao(){
 
-        System.out.println("***********************************************");
-
-        System.out.println();
-        System.out.println();
-        System.out.println("Operacões");
-        System.out.println();
-        System.out.println();
-        System.out.println("1 - Consultar saldos");
+        System.out.println("\nOperacões");
+        System.out.println("\n1 - Consultar saldos");
         System.out.println("2 - Receber valor");
         System.out.println("3 - Transferir valor");
         System.out.println("4 - Sair");
-        System.out.println();
-        System.out.println();
+
     }
 
-    public void calculo(Scanner leitura){
+    public void calculo(){
         while (opcao !=4 ){
 
-            System.out.println("Digite a opcao desejada:");
+            System.out.println("\nDigite a opcao desejada:");
             opcao = leitura.nextInt();
 
             if (opcao == 1){
@@ -66,13 +70,5 @@ public class Main {
         }
 
     }
-    public static void main(String[] args) {
-        Scanner leitura = new Scanner(System.in);
 
-        Main m = new Main();
-        m.cabecalho();
-        m.calculo(leitura);
-
-
-    }
 }
